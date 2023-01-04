@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ShoppingCart::class)->orderBy('created_at', "desc");
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class)->orderBy('created_at', "desc");
+    }
 }

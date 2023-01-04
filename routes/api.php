@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductSpecificationController;
 use App\Http\Controllers\Api\ShoppingCartController;
@@ -34,3 +34,6 @@ Route::delete('/specification/delete', [ProductSpecificationController::class, '
 Route::post('/cart/add', [ShoppingCartController::class, 'store']);
 Route::put('/cart/update/quantity', [ShoppingCartController::class, 'updateQuantity']);
 Route::delete('/cart/delete', [ShoppingCartController::class, 'destroy']);
+
+Route::post('/checkout', [OrderController::class, 'checkout']);
+Route::get('/orders', [OrderController::class, 'orders'])->middleware('auth:sanctum');
