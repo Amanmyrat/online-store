@@ -5,3 +5,4 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon la la-th-list"></i> Products</a></li>
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product-specification') }}"><i class="nav-icon la la-th-list"></i> Product specifications</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('shopping-cart') }}"><i class="nav-icon la la-th-list"></i> Shopping carts</a></li>

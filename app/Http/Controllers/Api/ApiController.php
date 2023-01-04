@@ -27,7 +27,6 @@ class ApiController extends Controller
      * @var Manager $fractal
      */
     protected $fractal;
-    public $locale;
 
     public function __construct(Request $request)
     {

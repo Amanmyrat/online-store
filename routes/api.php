@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductSpecificationController;
+use App\Http\Controllers\Api\ShoppingCartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,8 @@ Route::get('products', [ProductController::class, 'index']);
 Route::get('products/{slug}', [ProductController::class, 'getProductsBySlug']);
 
 Route::post('/specification/add', [ProductSpecificationController::class, 'store']);
-Route::delete('/specification/delete/{productSpecification}', [ProductSpecificationController::class, 'destroy']);
+Route::delete('/specification/delete', [ProductSpecificationController::class, 'destroy']);
+
+Route::post('/cart/add', [ShoppingCartController::class, 'store']);
+Route::put('/cart/update/quantity', [ShoppingCartController::class, 'updateQuantity']);
+Route::delete('/cart/delete', [ShoppingCartController::class, 'destroy']);

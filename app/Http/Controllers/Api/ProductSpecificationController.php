@@ -33,9 +33,18 @@ class ProductSpecificationController extends ApiController
         return $this->respondWithMessage("Successfully added new specification to the product");
     }
 
-    public function destroy(ProductSpecification $productSpecification)
+    public function destroy(Request $request)
     {
-        $productSpecification->delete();
+        $validatedData = $request->validate([
+            'id' => 'required|integer'
+        ]);
+        
+        $specification = ProductSpecification::where('id',$validatedData['id'])->get()->first();
+
+        if($specification)
+            $specification->delete();
+        else
+            return $this->errorNotFound();
         return $this->respondWithMessage("Successfully deleted specification from the product");
     }
 }
